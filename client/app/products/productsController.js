@@ -114,23 +114,45 @@ ecommercesite.filter("customCurrency",function(){
 	// setup optional parameters for the currency symbol and location (left or right of the amount)
 	return function(input, symbol, place) {
 
-	// Ensure that we are working with a number
-	if(isNaN(input)) {
-		return input;
-	} else {
-		// Check if optional parameters are passed, if not, use the defaults
-		var symbol = symbol || '$';
-		var place = place === undefined ? true : place;
-
-		// Perform the operation to set the symbol in the right location
-		var cents = input / 100;
-		if( place === true) {	
-			return symbol + cents;
+		// Ensure that we are working with a number
+		if(isNaN(input)) {
+			return input;
 		} else {
-			return cents + symbol;
+			// Check if optional parameters are passed, if not, use the defaults
+			var symbol = symbol || '$';
+			var place = place === undefined ? true : place;
+
+			// Perform the operation to set the symbol in the right location
+			var cents = input / 100;
+			if( place === true) {	
+				return symbol + cents;
+			} else {
+				return cents + symbol;
+			}
+
 		}
-
 	}
-	}
+});
 
+
+ecommercesite.filter("relativeTime",function(){
+	
+	return function(date) {
+		var oldDate = date;
+		var date = new Date(date);
+
+		// Ensure that we are working with a date
+		if(! date instanceof Date || isNaN(date.valueOf())) {
+			return oldDate;
+		} else {
+			var today = new Date();
+			var timeDiff = Math.abs(today.getTime() - date.getTime());
+			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+			if (diffDays < 3) {
+				return "3 days ago";
+			} else {
+				return oldDate;
+			}
+		}
+	}
 });
