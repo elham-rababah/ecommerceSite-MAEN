@@ -1,0 +1,27 @@
+{
+  "name": "ecommercesite-maen",
+  "version": "1.0.0",
+  "description": "E-commerce site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elham-rababah/ecommerceSite-MAEN.git"
+  },
+  "keywords": [
+    "MAEN"
+  ],
+  "author": "Elham Rababah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elham-rababah/ecommerceSite-MAEN/issues"
+  },
+  "homepage": "https://github.com/elham-rababah/ecommerceSite-MAEN#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "client",
+  "homepage": "https://github.com/elham-rababah/ecommerceSite-MAEN",
+  "authors": [
+    "Elham <elham.a.rababah@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
