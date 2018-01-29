@@ -1,6 +1,7 @@
 angular.module('ecommercesite', [
   'ngRoute',
-  'ecommercesite.ProductsController'
+  'ecommercesite.ProductsController',
+  'bw.paging',
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider

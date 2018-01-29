@@ -1,3 +1,21 @@
 <h1>
 Products
+{{pagingInfo.textFirst }}
+{{pagingInfo.total}}
+
+
 </h1>
+
+<paging
+  page=pagingInfo.page
+  page-size=pagingInfo.pageSize 
+  total=pagingInfo.total
+  text-first={{pagingInfo.textFirst}} 
+  text-last={{pagingInfo.textLast}} 
+  text-next={{pagingInfo.textNext}} 
+  text-prev={{pagingInfo.textPrev}}
+  show-prev-next={{pagingInfo.showprevNext}} 
+  show-first-last={{pagingInfo.showFirstLast}} 
+  paging-action = getProducts(page,total,pageSize)
+  >
+</paging>
