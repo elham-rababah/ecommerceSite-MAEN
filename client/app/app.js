@@ -2,6 +2,7 @@ angular.module('ecommercesite', [
   'ngRoute',
   'ecommercesite.ProductsController',
   'bw.paging',
+  'currencyFormat',
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
