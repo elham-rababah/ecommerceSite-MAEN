@@ -26,7 +26,7 @@ Products
      </thead>
      <tbody>
      <tr grid-item>
-        <td ng-bind="item.face"></td>
+        <td ng-style={"font-size":item.size} ng-bind="item.face"></td>
         <td ng-bind="item.size"></td>
         <td ng-bind="item.price | customCurrency:'$':true"></td>
         <td ng-bind="item.date"></td>
