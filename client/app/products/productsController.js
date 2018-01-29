@@ -110,32 +110,27 @@ ecommercesite.factory('myAppFactory', function ($http) {
 });
 
 ecommercesite.filter("customCurrency",function(){
+	// Create the return function and set the required parameter name to **input**
+	// setup optional parameters for the currency symbol and location (left or right of the amount)
+	return function(input, symbol, place) {
 
-   // Create the return function and set the required parameter name to **input**
-  // setup optional parameters for the currency symbol and location (left or right of the amount)
-  return function(input, symbol, place) {
+	// Ensure that we are working with a number
+	if(isNaN(input)) {
+		return input;
+	} else {
+		// Check if optional parameters are passed, if not, use the defaults
+		var symbol = symbol || '$';
+		var place = place === undefined ? true : place;
 
-    // Ensure that we are working with a number
-    if(isNaN(input)) {
-      return input;
-    } else {
+		// Perform the operation to set the symbol in the right location
+		var cents = input / 100;
+		if( place === true) {	
+			return symbol + cents;
+		} else {
+			return cents + symbol;
+		}
 
-      // Check if optional parameters are passed, if not, use the defaults
-      var symbol = symbol || '$';
-      var place = place === undefined ? true : place;
-
-      // Perform the operation to set the symbol in the right location
-      var cents = input / 100;
-      if( place === true) {
-      	
-		cents.toLocaleString("en-US", {style:"currency", currency:"USD"});
-        return symbol + cents;
-
-      } else {
-        return cents + symbol;
-      }
-
-    }
-  }
+	}
+	}
 
 });
