@@ -91,9 +91,9 @@ ecommercesite.controller('ProductsController', function ($scope, Products) {
 	var getSortProducts= function(type,page) {
 		console.log("controler type",type )
 		Products.getSortProducts(type,page)
-		.then(function (res) {
-			// console .log (res)
-	 		//Put sorted data in $scope.gridOptions.data = res.data
+		.then(function (resData) {
+			console .log (resData)
+	 		//Put sorted data in $scope.gridOptions.data = resData.data
 	 		//modify the pagination info
 		})
 

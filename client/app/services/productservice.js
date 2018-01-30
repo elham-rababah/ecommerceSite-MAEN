@@ -3,7 +3,6 @@ angular.module('ecommercesite.productservice', [])
 .factory('Products',function($http){
 
 	var getSortProducts = function(type,page){
-		console.log(type,page);
 		return $http({
 			method:'GET',
 			url:'/api/sortproducts/',
@@ -13,6 +12,7 @@ angular.module('ecommercesite.productservice', [])
 			}
 		})
 		.then(function(resp){
+			console.log("resp",resp);
 			return resp.data;
 		})
 	};
