@@ -10,16 +10,16 @@ Products
     <table class="table">
      <thead>
      <tr>
-        <th sortable="face" class="sortable">
+        <th  class="sortable">
             Faces
         </th>
-        <th sortable="size" class="sortable">
+        <th ng-click = "gridActions.getSortProducts('size',pagingInfo.page)" class="sortable">
             Size
         </th>
-        <th sortable="price" class="sortable">
+        <th ng-click = "gridActions.getSortProducts('price',pagingInfo.page)" class="sortable">
             Price 
         </th>
-        <th sortable='date' class="sortable">
+        <th  class="sortable">
             Date
         </th>
      </tr>

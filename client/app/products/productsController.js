@@ -1,6 +1,6 @@
 var ecommercesite = angular.module('ecommercesite.ProductsController', ['dataGrid'])
 
-ecommercesite.controller('ProductsController', function ($scope, myAppFactory) {
+ecommercesite.controller('ProductsController', function ($scope, Products) {
 	console.log("productsController.j");
 	$scope.pagingInfo = {
 		page: 5, 
@@ -85,29 +85,46 @@ ecommercesite.controller('ProductsController', function ($scope, myAppFactory) {
 		"face": "(¬_¬)",
 		"date": "Tue Jan 23 2018 07:03:15 GMT+0200 (EET)"
 		}],
-		urlSync: true
+		urlSync: false
 	};
 
-$scope.getProducts = function (page, total, pageSize) {
- 	console.log(page, total, pageSize);
- }
+	var getSortProducts= function(type,page) {
+		console.log("controler type",type )
+		Products.getSortProducts(type,page)
+		.then(function (res) {
+			// console .log (res)
+	 		//Put sorted data in $scope.gridOptions.data = res.data
+	 		//modify the pagination info
+		})
 
-myAppFactory.getData().then(function (responseData) {
-	console.log(responseData.data);
-    //$scope.gridOptions.data = responseData.data;
-});
+	}
 
+	$scope.gridActions = {
+		getSortProducts: getSortProducts,
+	}
+
+	
+
+	$scope.getProducts = function (page, total, pageSize) {
+	 	//console.log(page, total, pageSize);
+	 	var pageinfo = {
+	 		page: page, 
+			pageSize: pageSize,
+			total: total,
+	 	}
+	 	console.log(pageinfo);
+	 	Products.getProducts(pageinfo)
+	 	.then(function (res){
+	 		// console .log (res)
+	 		//Put sorted data in $scope.gridOptions.data = res.data
+	 		//modify the pagination info  
+
+	 	})
+	}
+	
 })
-ecommercesite.factory('myAppFactory', function ($http) {
-	return {
-        getData: function () {
-            return $http({
-                method: 'GET',
-                url: 'https://angular-data-grid.github.io/demo/data.json'
-            });
-         }
-    }
-});
+
+
 
 ecommercesite.filter("customCurrency",function(){
 	// Create the return function and set the required parameter name to **input**
