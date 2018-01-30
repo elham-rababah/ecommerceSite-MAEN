@@ -6,19 +6,20 @@ angular.module('ecommercesite.productservice', [])
 		console.log(type);
 		return $http({
 			method:'GET',
-			url:'/api/sortproducts',
-			params: {"type" : type}
+			url:'/api/sortproducts/',
+			params:{"type" :type}
 		})
 		.then(function(resp){
 			return resp.data;
 		})
 	};
 	var getProducts = function(data){
+		console.log()
 		console.log(data);
 		return $http({
 			method:'GET',
-			url:'/api/sortproducts',
-			params: data
+			url:'/api/getproducts/',
+			params:data
 		})
 		.then(function(resp){
 			return resp.data;
