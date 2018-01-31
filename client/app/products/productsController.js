@@ -82,7 +82,7 @@ ecommercesite.filter("relativeTime",function(){
 			var today = new Date();
 			var timeDiff = Math.abs(today.getTime() - date.getTime());
 			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-			if (diffDays < 3) {
+			if (diffDays < 7) {
 				return "3 days ago";
 			} else {
 				return oldDate;
