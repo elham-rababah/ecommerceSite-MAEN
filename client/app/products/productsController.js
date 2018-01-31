@@ -10,7 +10,8 @@ ecommercesite.controller('ProductsController', function ($scope, Products) {
 		textNext: "next",
 		textPrev: "prev",
 		showprevNext: "true",
-		showFirstLast: "true"
+		showFirstLast: "true",
+		sortBy:""
 		
 	}
 	$scope.gridOptions = {
@@ -21,10 +22,19 @@ ecommercesite.controller('ProductsController', function ($scope, Products) {
 
 
 	var getSortProducts= function(page,sortBy) {
+		if (sortBy){
+			if ($scope.pagingInfo.sortBy == sortBy){
+				$scope.pagingInfo.sortBy = '';
+			} else {
+				$scope.pagingInfo.sortBy = sortBy;
+			}
+		}
 		var params = {
 			page: page,
-			sortBy: sortBy,
+			sortBy: $scope.pagingInfo.sortBy,
 		}
+
+
 		Products.getSortProducts(params)
 		.then(function (resData) {
 			$scope.gridOptions.data = resData.products;

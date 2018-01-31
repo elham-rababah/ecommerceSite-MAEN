@@ -14,12 +14,12 @@ Products
             Faces
         </th>
         <th ng-click = "gridActions.getSortProducts(pagingInfo.page, 'size')" class="sortable">
-            Size
+            Size <span ng-if="pagingInfo.sortBy == 'size'">sorted</span>
         </th>
         <th ng-click = "gridActions.getSortProducts(pagingInfo.page, 'price')" class="sortable">
-            Price 
+            Price <span ng-if="pagingInfo.sortBy == 'price'">sorted</span>
         </th>
-        <th  class="sortable">
+        <th >
             Date
         </th>
      </tr>
