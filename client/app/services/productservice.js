@@ -9,7 +9,6 @@ angular.module('ecommercesite.productservice', [])
 			params:params
 		})
 		.then(function(resp){
-			console.log("resp",resp);
 			return resp.data;
 		})
 	};
