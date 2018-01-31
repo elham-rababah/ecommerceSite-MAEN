@@ -2,14 +2,11 @@ angular.module('ecommercesite.productservice', [])
 
 .factory('Products',function($http){
 
-	var getSortProducts = function(type,page){
+	var getSortProducts = function(params){
 		return $http({
 			method:'GET',
 			url:'/api/sortproducts/',
-			params:{
-				"sortBy" :type,
-				"page" :page,
-			}
+			params:params
 		})
 		.then(function(resp){
 			console.log("resp",resp);

@@ -13,10 +13,10 @@ Products
         <th  class="sortable">
             Faces
         </th>
-        <th ng-click = "gridActions.getSortProducts('size',pagingInfo.page)" class="sortable">
+        <th ng-click = "gridActions.getSortProducts(pagingInfo.page, 'size')" class="sortable">
             Size
         </th>
-        <th ng-click = "gridActions.getSortProducts('price',pagingInfo.page)" class="sortable">
+        <th ng-click = "gridActions.getSortProducts(pagingInfo.page, 'price')" class="sortable">
             Price 
         </th>
         <th  class="sortable">
@@ -44,6 +44,6 @@ Products
   text-prev={{pagingInfo.textPrev}}
   show-prev-next={{pagingInfo.showprevNext}} 
   show-first-last={{pagingInfo.showFirstLast}} 
-  paging-action = getProducts(page,total,pageSize)
+  paging-action = gridActions.getSortProducts(page)
   >
 </paging>
