@@ -1,7 +1,6 @@
 var ecommercesite = angular.module('ecommercesite.ProductsController', ['dataGrid'])
 
 ecommercesite.controller('ProductsController', function ($scope, Products) {
-	console.log("productsController.j");
 	$scope.pagingInfo = {
 		page: 1, 
 		pageSize: 5,
@@ -28,12 +27,9 @@ ecommercesite.controller('ProductsController', function ($scope, Products) {
 		}
 		Products.getSortProducts(params)
 		.then(function (resData) {
-			console .log (resData)
 			$scope.gridOptions.data = resData.products;
 			$scope.pagingInfo.page = resData.page;
 			$scope.pagingInfo.total =  resData.maxPage * $scope.pagingInfo.pageSize;
-	 		//Put sorted data in $scope.gridOptions.data = resData.data
-	 		//modify the pagination info
 		})
 
 	}
@@ -41,25 +37,6 @@ ecommercesite.controller('ProductsController', function ($scope, Products) {
 
 	$scope.gridActions = {
 		getSortProducts: getSortProducts,
-	}
-
-	
-
-	$scope.getProducts = function (page, total, pageSize) {
-	 	//console.log(page, total, pageSize);
-	 	var pageinfo = {
-	 		page: page, 
-			pageSize: pageSize,
-			total: total,
-	 	}
-	 	console.log(pageinfo);
-	 	Products.getProducts(pageinfo)
-	 	.then(function (res){
-	 		// console .log (res)
-	 		//Put sorted data in $scope.gridOptions.data = res.data
-	 		//modify the pagination info  
-
-	 	})
 	}
 	
 })
