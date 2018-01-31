@@ -57,11 +57,11 @@ ecommercesite.filter("customCurrency",function(){
 			var place = place === undefined ? true : place;
 
 			// Perform the operation to set the symbol in the right location
-			var cents = input / 100;
+			var dollars = input / 100;
 			if( place === true) {	
-				return symbol + cents;
+				return symbol + dollars;
 			} else {
-				return cents + symbol;
+				return dollars + symbol;
 			}
 
 		}

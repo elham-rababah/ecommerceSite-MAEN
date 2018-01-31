@@ -31,8 +31,10 @@ module.exports = {
 
 			}
 		}
+
 		var x = (currentPage-1)*pagesize;
-		products = products.slice(x,5+x);
+		products = products.slice(x,pagesize+x);
+		console.log(products);
 		var data = {
 			maxPage :totalpages,
 			products :products,
